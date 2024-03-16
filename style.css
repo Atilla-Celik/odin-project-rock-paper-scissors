@@ -1,0 +1,35 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #bbaa88;
+    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
+        sans-serif;
+}
+
+#btn-container {
+    margin: auto;
+    width: 600px;
+    text-align: center;
+}
+
+.selection {
+    width: 90px;
+    height: 30px;
+    border-radius: 12px;
+}
+
+#res-container {
+    width: 500px;
+    height: 300px;
+    margin: auto;
+    text-align: center;
+}
+
+.results {
+    display: inline-block;
+    margin-top: 80px;
+    font-size: 30px;
+    color: #000;
+}

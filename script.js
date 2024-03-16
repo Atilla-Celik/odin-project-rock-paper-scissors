@@ -1,16 +1,28 @@
 "use strict";
 
+const rock = document.querySelector("#rock");
+const paper = document.querySelector("#paper");
+const scissors = document.querySelector("#scissors");
+const buttons = document.querySelectorAll(".selection");
+const results = document.querySelector(".results");
+
 const getComputerChoice = function () {
     let randomNum = Math.floor(Math.random() * 3) + 1;
     console.log(randomNum);
     return randomNum;
 };
 
+buttons.forEach((btn) =>
+    btn.addEventListener("click", () => {
+        playRPS(btn.textContent.toLowerCase());
+        console.log(btn.textContent.toLowerCase());
+    })
+);
+
 let playerScore = 0;
 let cpuScore = 0;
 
-const playRPS = function () {
-    let playerChoice = prompt("Rock, paper or scissors?").toLowerCase();
+const playRPS = function (playerChoice) {
     let computerChoice = getComputerChoice();
 
     if (playerChoice === "rock") {
@@ -47,16 +59,12 @@ const playRPS = function () {
         console.log("Invalid answer");
     }
 
-    console.log(`The score is: You ${playerScore}, CPU ${cpuScore}`);
-    console.log(counter);
-};
+    results.innerText = `The score is: You ${playerScore}, CPU ${cpuScore}`;
 
-let playGame = function () {
-    while (playerScore < 3 && cpuScore < 3) {
-        playRPS();
+    if (playerScore === 5) {
+        results.innerText += "\nYou won!";
+    } else if (cpuScore === 5) {
+        results.innerText += "\nYou lost:/";
     }
-    playerScore > cpuScore
-        ? console.log("You win:)")
-        : console.log("You lose:/");
 };
-playGame();
+// playGame();
